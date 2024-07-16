@@ -25,12 +25,21 @@ export class ChecklistService {
 
   // selectors
   checklists = computed(() => this.state().checklists);
+  loaded = computed(() => this.state().loaded);
 
   // sources
   add$ = new Subject<AddChecklist>();
   private checklistsLoaded$ = this.storageService.loadChecklists();
 
   constructor() {
+    //effects
+    effect(() => {
+      if(this.loaded()) {
+        this.storageService.saveChecklists(this.checklists());
+      }
+    })
+
+
     // reducers
     this.add$.pipe(takeUntilDestroyed()).subscribe((checklist) => {
       this.state.update((state) => ({
