@@ -1,5 +1,5 @@
 import { Component, input, output } from "@angular/core";
-import { ChecklistItem } from "../../shared/interfaces/checklist-item";
+import { ChecklistItem, EditChecklistItem, RemoveChecklistItem } from "../../shared/interfaces/checklist-item";
 import { RemoveChecklist } from "../../shared/interfaces/checklist";
 
 @Component({
@@ -18,6 +18,8 @@ import { RemoveChecklist } from "../../shared/interfaces/checklist";
             </div>
             <div>
               <button (click)="toggle.emit(item.id)">Toggle</button>
+              <button (click)="edit.emit(item)">Edit</button>
+              <button (click)="delete.emit(item.id)">Delete</button>
             </div>
           </li>
 
@@ -34,4 +36,6 @@ import { RemoveChecklist } from "../../shared/interfaces/checklist";
 export class ChecklistItemListComponent {
   checklistItems = input.required<ChecklistItem[]>();
   toggle = output<RemoveChecklist>();
+  delete = output<RemoveChecklistItem>();
+  edit = output<ChecklistItem>();
 }
