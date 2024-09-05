@@ -1,5 +1,5 @@
 import { Component, input, output } from "@angular/core";
-import { ChecklistItem, EditChecklistItem, RemoveChecklistItem } from "../../shared/interfaces/checklist-item";
+import { ChecklistItem, RemoveChecklistItem } from "../../shared/interfaces/checklist-item";
 import { RemoveChecklist } from "../../shared/interfaces/checklist";
 
 @Component({

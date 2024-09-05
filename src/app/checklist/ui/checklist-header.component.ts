@@ -1,4 +1,4 @@
-import { Component, effect, input, output } from "@angular/core";
+import { Component, input, output } from "@angular/core";
 import { Checklist, RemoveChecklist } from "../../shared/interfaces/checklist";
 import { RouterLink } from "@angular/router";
 
